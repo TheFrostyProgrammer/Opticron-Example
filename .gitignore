@@ -397,3 +397,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /.vscode
+/Opticron/wwwroot/images/banners
+/Opticron/wwwroot/images/news
+/Opticron/wwwroot/images/offers
+Opticron/wwwroot/images/.DS_Store
+.DS_Store
