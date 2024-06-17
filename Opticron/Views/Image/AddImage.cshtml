@@ -1,0 +1,28 @@
+﻿@model Opticron.SingleFileUploadModel
+@{
+}
+<form asp-action="AddImage" method="post" enctype="multipart/form-data">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell">
+                <label asp-for="FormFile" for="FileUpload" class="button">Select File</label>
+                <input type="file" asp-for="FormFile" id="FileUpload" class="show-for-sr"/>
+                
+            </div>
+            <div class="cell">
+                <label asp-for="Folder">
+                    <select asp-for="Folder">
+                        <option value="banners">Banners</option>
+                        <option value="categories">Categories</option>
+                        <option value="offers">Offers</option>
+                        <option value="news">News</option>
+                    </select>
+                </label>
+            </div>
+            <div class="cell">
+                <input type="submit" value="Save Image" class="submit success button">
+            </div>
+            
+        </div>
+    </div>
+</form>

@@ -1,0 +1,90 @@
+﻿@model Opticron.IndexViewModel 
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="grid-container full">
+    <div class="slick-carousel single-item">
+        @foreach (var item in Model.BannerDirectoryContents)
+        {
+            <div>
+                <img
+                src="~/images/banners/@item.Name"
+                alt="" class="banner-image">
+            </div>
+        }
+            
+    </div>
+</div>
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        @foreach (var item in Model.News)
+        {
+             <div class="cell small-12 medium-6 large-3 auto">
+                <div class="card">
+                    <div class="card-divider">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </div>
+                    <img src="~/images/news/@item.ImageUrl" alt="">
+                    <div class="card-section">
+                        <p class="text-center">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </p>
+                        <button type="button" class="button green-button" style="background-color: green;">@Html.DisplayFor(modelItem => item.ButtonName)</button>
+                    </div>
+                </div>
+            </div>   
+        }
+    </div>
+</div>
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="cell">
+            <h3 class="text-center">Special Offers</h3>
+        </div>
+        @foreach (var item in Model.Offers)
+        {
+            <div class="cell small-12 medium-6 large-4 auto">
+                <div class="card">
+                    <img src="~/images/offers/@item.ImageUrl" alt="" @*width="335" height="256"*@ class="offer-image">
+                    <div class="card-section">
+                        <p class="text-center">@Html.DisplayFor(modelItem => item.Title)</p>
+                        <p class="text-center">@Html.DisplayFor(modelItem => item.Description)</p>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="cell">
+            <div class="button-group align-center">
+            <button type="button" class="button green-button" style="background-color: green;">View All Offers</button>
+        </div>
+    </div>
+</div>
+<div class="grid-container">
+        <div class="slick-carousel product-categories">
+            <div>
+                <img src="" alt="" width="370" height="256">
+                <h3>1</h3>
+            </div>
+            <div>
+                <img src="" alt="" width="370" height="256">
+                <h3>2</h3>
+            </div>
+            <div>
+                <img src="" alt="" width="370" height="256">
+                <h3>3</h3>
+            </div>
+            <div>
+                <img src="" alt="" width="370" height="256">
+                <h3>4</h3>
+            </div>
+            <div>
+                <img src="" alt="" width="370" height="256">
+                <h3>5</h3>
+            </div>
+            <div>
+                <img src="" alt="" width="370" height="256">
+                <h3>6</h3>
+            </div>
+        </div>
+</div>

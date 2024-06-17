@@ -1,0 +1,72 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* below needed for responsive menu toggling */
+.no-js .top-bar {
+  display: none;
+}
+
+@media screen and (min-width: 40em) {
+  .no-js .top-bar {
+    display: block;
+  }
+
+  .no-js .title-bar {
+    display: none;
+  }
+}
+
+/* for grid container full to use full viewport*/
+
+body {overflow-x: hidden;}
+
+/* .top-bar .top-bar-left,
+.top-bar .top-bar-right {
+  width: auto;
+  float: none;
+  display: inline-block;
+} */
+
+@include top-bar-unstack;
+
+/* for set banner image max height*/
+/* .banner-image {
+  max-height: 355px;
+} */
+
+/* for max offer image size */
+.offer-image {
+  max-height: 256px;
+  max-width: 335px;
+}
+
+/*green buttons on index page of home controller*/
+.green-button {
+  background-color: green;
+}
+
+/* slick dots position*/
+.slick-dots {
+  left: 45%;
+  top: 70%;
+}

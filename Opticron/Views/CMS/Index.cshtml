@@ -1,0 +1,82 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Opticron.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="cell">
+            <h2>Edit - News</h2>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>ButtonName</th>
+                    <th>ImageUrl</th>
+                    <th></th>
+                </thead>
+                @foreach (var item in Model.News)
+                {
+
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayFor(itemModel => item.Name)</td>
+                            <td>@Html.DisplayFor(itemModel => item.Description)</td>
+                            <td>@Html.DisplayFor(itemModel => item.ButtonName)</td>
+                            <td>@Html.DisplayFor(itemModel => item.ImageUrl)</td>
+                            <td><a asp-controller="News" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+        <div class="cell">
+            <h2>Edit - Offers</h2>
+            <table>
+                <thead>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>ImageUrl</th>
+                    <th></th>
+                </thead>
+                @foreach (var item in Model.Offers)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayFor(itemModel => item.Title)</td>
+                            <td>@Html.DisplayFor(itemModel => item.Description)</td>
+                            <td>@Html.DisplayFor(itemModel => item.ImageUrl)</td>
+                            <td><a asp-controller="Offer" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+        <div class="cell">
+            <h2>Edit - Images</h2>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>ImageUrl</th>
+                    <th>Image</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fluff</td>
+                        <td>www.imageurl/fancyimage</td>
+                        <td>Image</td>
+                        <td><a asp-action="Edit" asp-route-id="">Edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3><a asp-controller="Image" asp-action="AddImage">Add new Image</a></h3>
+            @foreach (var filename in Model.DirectoryContents)
+            {
+                <p>@filename.Name</p>
+            }
+        </div>
+    </div>
+</div>

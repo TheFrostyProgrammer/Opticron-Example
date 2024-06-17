@@ -1,0 +1,43 @@
+﻿@model Opticron.EditOfferViewModel
+@{
+}
+<form asp-action="Edit">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <input asp-for="Offer.Id" type="hidden">
+            <div class="cell">
+                <label asp-for="Offer.Title" for="">
+                    @Html.DisplayNameFor(model => model.Offer.Title)
+                    <input asp-for="Offer.Title" type="text" placeholder="Offer Title" > 
+                </label>         
+            </div>
+            <div class="cell">
+                <label asp-for="Offer.Description" for="">
+                    @Html.DisplayNameFor(model => model.Offer.Description)
+                    <textarea asp-for="Offer.Description" placeholder="None"></textarea>
+                </label>
+            </div>
+            <div class="cell">
+                <label asp-for="Offer.ImageUrl">
+                    @Html.DisplayNameFor(model => model.Offer.ImageUrl)
+                    <select asp-for="Offer.ImageUrl">
+                        @if (Model.DirectoryContents != null)
+                        {
+                            foreach (var item in Model.DirectoryContents)
+                            {
+                                <option value="@item.Name">@item.Name</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="No Images">No Images</option>
+                        }
+                    </select>
+                </label>
+            </div>
+            <div class="cell">
+                <input type="submit" class="submit success button">
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opticron", "Opticron\Opticron.csproj", "{B3631647-CA81-4CDA-B30C-9574D1F3136C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3631647-CA81-4CDA-B30C-9574D1F3136C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3631647-CA81-4CDA-B30C-9574D1F3136C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3631647-CA81-4CDA-B30C-9574D1F3136C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3631647-CA81-4CDA-B30C-9574D1F3136C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {025065B7-532D-4269-8706-227B1759F36B}
+	EndGlobalSection
+EndGlobal

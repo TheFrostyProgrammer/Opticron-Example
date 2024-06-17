@@ -1,0 +1,50 @@
+﻿@model Opticron.EditNewsViewModel
+@{
+}
+<form asp-action="Edit">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <input asp-for="News.Id" type="hidden">
+            <div class="cell">
+                <label asp-for="News.Name" for="">
+                    @Html.DisplayNameFor(model => model.News.Name)
+                    <input asp-for="News.Name" type="text" placeholder="News Title" > 
+                </label>         
+            </div>
+            <div class="cell">
+                <label asp-for="News.Description" for="">
+                    @Html.DisplayNameFor(model => model.News.Description)
+                    <textarea asp-for="News.Description" placeholder="None"></textarea>
+                </label>
+            </div>
+            <div class="cell">
+                <label asp-for="News.ButtonName" for="">
+                    @Html.DisplayNameFor(model => model.News.ButtonName)
+                    <input asp-for="News.ButtonName" type="text" placeholder="Button Text" >
+                </label>
+            </div>
+            <div class="cell">
+                <label asp-for="News.ImageUrl" for="">
+                    @Html.DisplayNameFor(model => model.News.ImageUrl)
+                    <select asp-for="News.ImageUrl">
+                        @if (Model.DirectoryContents != null)
+                        {
+                            foreach (var item in Model.DirectoryContents)
+                            {
+                                <option value="@item.Name">@item.Name</option>
+                            }
+                        }
+                        else
+                        {
+                            <option value="No Images">No Images</option>
+                        }
+                    </select>
+                    @* <input asp-for="News.ImageUrl" type="text" placeholder="Image URL" > *@
+                </label>
+            </div>
+            <div class="cell">
+                <input type="submit" class="submit success button">
+            </div>
+        </div>
+    </div>
+</form>
