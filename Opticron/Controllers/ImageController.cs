@@ -19,13 +19,14 @@ public class ImageController : Controller
         this._mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         this._webHostEnvironment = webHostEnvironment ?? throw new ArgumentNullException(nameof(webHostEnvironment));
     }
-
+    [HttpGet("/edit")]
     public async Task<IActionResult> AddImage()
     {
         return View(new SingleFileUploadModel());
     }
 
-    [HttpPost]
+    [HttpPost("/edit")]
+    
     public async Task<IActionResult> AddImage(SingleFileUploadModel model)
     {
         if (model.FormFile == null)
@@ -39,6 +40,20 @@ public class ImageController : Controller
         var uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, folderName);
         var filePath = Path.Combine(uploadPath, uniqueFileName);
         model.FormFile.CopyTo(new FileStream(filePath, FileMode.Create));
+        return RedirectToAction(controllerName: "CMS", actionName: "Index");
+    }
+
+    [HttpPost("/delete")]
+    public IActionResult Delete(string? fileName)
+    {
+        //can image be found?
+        if (String.IsNullOrEmpty(fileName))
+        {
+            return RedirectToAction(controllerName: "CMS", actionName: "Index");
+        }
+        var folderName = Path.Combine("images", "banners");
+        var fullFilePath = Path.Combine(_webHostEnvironment.WebRootPath, folderName, fileName);
+        System.IO.File.Delete(fullFilePath);
         return RedirectToAction(controllerName: "CMS", actionName: "Index");
     }
 

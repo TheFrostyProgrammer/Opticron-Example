@@ -17,10 +17,11 @@
                     <th>ImageUrl</th>
                     <th></th>
                 </thead>
+                <tbody>
                 @foreach (var item in Model.News)
                 {
 
-                    <tbody>
+                    
                         <tr>
                             <td>@Html.DisplayFor(itemModel => item.Name)</td>
                             <td>@Html.DisplayFor(itemModel => item.Description)</td>
@@ -28,8 +29,9 @@
                             <td>@Html.DisplayFor(itemModel => item.ImageUrl)</td>
                             <td><a asp-controller="News" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
                         </tr>
-                    </tbody>
+                    
                 }
+                </tbody>
             </table>
         </div>
         <div class="cell">
@@ -41,42 +43,46 @@
                     <th>ImageUrl</th>
                     <th></th>
                 </thead>
+                <tbody>
                 @foreach (var item in Model.Offers)
                 {
-                    <tbody>
+                    
                         <tr>
                             <td>@Html.DisplayFor(itemModel => item.Title)</td>
                             <td>@Html.DisplayFor(itemModel => item.Description)</td>
                             <td>@Html.DisplayFor(itemModel => item.ImageUrl)</td>
                             <td><a asp-controller="Offer" asp-action="Edit" asp-route-id="@item.Id">Edit</a></td>
                         </tr>
-                    </tbody>
+                    
                 }
+                </tbody>
             </table>
         </div>
         <div class="cell">
             <h2>Edit - Images</h2>
             <table>
                 <thead>
-                    <th>Name</th>
                     <th>ImageUrl</th>
                     <th>Image</th>
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Fluff</td>
-                        <td>www.imageurl/fancyimage</td>
-                        <td>Image</td>
-                        <td><a asp-action="Edit" asp-route-id="">Edit</a></td>
-                    </tr>
+                    @foreach (var item in Model.BannerDirectoryContents)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td><img src="~/images/banners/@item.Name" alt=""></td>
+                            <form asp-controller="Image" asp-action="Delete" method="post">
+                                <input type="hidden" name="fileName" value="@item.Name">
+                                <td><input type="submit" value="Delete"></td>
+                            </form>
+                            
+                        </tr>
+                    }
+                    
                 </tbody>
             </table>
             <h3><a asp-controller="Image" asp-action="AddImage">Add new Image</a></h3>
-            @foreach (var filename in Model.DirectoryContents)
-            {
-                <p>@filename.Name</p>
-            }
         </div>
     </div>
 </div>

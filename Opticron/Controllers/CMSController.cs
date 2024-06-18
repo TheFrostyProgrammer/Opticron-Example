@@ -26,8 +26,8 @@ public class CMSController : Controller
         model.Offers = await _contentRepository.GetAllOffersAsync();
 
         // search directories for images
-        var imageDirectory = new PhysicalFileProvider(_webHostEnvironment.WebRootPath).GetDirectoryContents("images");   
-        model.DirectoryContents = imageDirectory;
+        model.BannerDirectoryContents = new PhysicalFileProvider(_webHostEnvironment.WebRootPath).GetDirectoryContents("images/banners");   
+        //model.DirectoryContents = imageDirectory;
         return View(model);
     }
 }
