@@ -75,3 +75,14 @@ body {overflow-x: hidden;}
 .news-card {
   height: 100%;
 }
+/* self descriptive*/
+.footer-left-text-container {
+  height: 50%;
+  display: flex;
+  align-items: end;
+}
+
+/* self descriptive*/
+.footer-text-white {
+  color: white;
+}
