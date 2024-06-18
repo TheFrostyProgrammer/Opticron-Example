@@ -21,7 +21,7 @@
         @foreach (var item in Model.News)
         {
              <div class="cell small-12 medium-6 large-3 auto">
-                <div class="card">
+                <div class="card news-card">
                     <div class="card-divider">
                         @Html.DisplayFor(modelItem => item.Name)
                     </div>
@@ -46,7 +46,7 @@
         {
             <div class="cell small-12 medium-6 large-4 auto">
                 <div class="card">
-                    <img src="~/images/offers/@item.ImageUrl" alt="" @*width="335" height="256"*@ class="offer-image">
+                    <img src="~/images/offers/@item.ImageUrl" alt=""  class="offer-image">@*width="335" height="256"*@
                     <div class="card-section">
                         <p class="text-center">@Html.DisplayFor(modelItem => item.Title)</p>
                         <p class="text-center">@Html.DisplayFor(modelItem => item.Description)</p>

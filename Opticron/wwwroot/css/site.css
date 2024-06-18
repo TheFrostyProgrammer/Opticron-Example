@@ -70,3 +70,8 @@ body {overflow-x: hidden;}
   left: 45%;
   top: 70%;
 }
+
+/* full height news cards*/
+.news-card {
+  height: 100%;
+}
